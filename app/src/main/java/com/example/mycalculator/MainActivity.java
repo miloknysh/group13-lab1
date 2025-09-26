@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     result = evaluate(text_display.getText().toString());
                     text_display.setText(result);
-                } catch (Exception e) {
+                } catch (ScriptException e) {
                     text_display.setText("Error");
                 }
                 break;
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private String evaluate(String expression) throws Exception {
+    private String evaluate(String expression) throws ScriptException {
         String result = engine.eval(expression).toString();
         BigDecimal decimal = new BigDecimal(result);
         return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
