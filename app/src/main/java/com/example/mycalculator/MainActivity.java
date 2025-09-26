@@ -86,9 +86,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber("4");
                 break;
 
+            case R.id.btn5:
+                addNumber("5");
+                break;
+
+            case R.id.btn6:
+                addNumber("6");
+                break;
+
+            case R.id.btn7:
+                addNumber("7");
+                break;
+
+            case R.id.btn8:
+                addNumber("8");
+                break;
+
+            case R.id.btn9:
+                addNumber("9");
+                break;
+
+            case R.id.btn0:
+                addNumber("0");
+                break;
+
+            case R.id.btn_minus:
+                addNumber("-");
+                break;
+
             case R.id.btn_plus:
                 addNumber("+");
                 break;
+
+            case R.id.btn_mult:
+                addNumber("×");
+                break;
+
+            case R.id.btn_div:
+                addNumber("÷");
+                break;
+
+            case R.id.btn_dot:
+                addNumber(".");
+                break;
+
             case R.id.btn_equal:
                 String result = null;
                 try {
