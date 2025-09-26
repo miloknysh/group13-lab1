@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -18,14 +21,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_minus, btn_mult, btn_div, btn_dot, btn_clear, btn_plus, btn_equal;
     TextView text_display;
 
-    // This is to evaluate the math expression (this comment is from the starter code, idk)
+    // This is to evaluate the math expression
+    ScriptEngine engine;
 
 
-    //done
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        engine = new ScriptEngineManager().getEngineByName("rhino");
 
 
         btn1 = (Button) findViewById(R.id.btn1);
@@ -50,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setClickListeners();
     }
 
-    //done
     private void setClickListeners() {
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -72,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    //every case in onClick() is done except btn_equal
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -135,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(".");
                 break;
 
-            case R.id.btn_equal: // case btn_equal is starter code from brightspace, needs to be coded properly.
+            case R.id.btn_equal:
                 String result = null;
                 try {
                     result = evaluate(text_display.getText().toString());
@@ -153,20 +156,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //method evaluate() is starter code from brightspace, needs to be coded properly.
+
     private String evaluate(String expression) throws Exception {
-        String result = evaluate(expression);
+        String result = engine.eval(expression).toString();
         BigDecimal decimal = new BigDecimal(result);
         return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
     }
 
-
-    //done
     private void addNumber(String number) {
         text_display.setText(text_display.getText() + number);
     }
 
-    //done
     private void clear_display() {
         text_display.setText("");
     }
