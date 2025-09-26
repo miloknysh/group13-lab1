@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_minus, btn_mult, btn_div, btn_dot, btn_clear, btn_plus, btn_equal;
     TextView text_display;
 
-    // This is to evaluate the math expression
+    // This is to evaluate the math expression (this comment is from the starter code, idk)
 
+
+    //done
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setClickListeners();
     }
 
+    //done
     private void setClickListeners() {
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -68,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_clear.setOnClickListener(this);
     }
 
+
+    //every case in onClick() is done except btn_equal
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -130,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber(".");
                 break;
 
-            case R.id.btn_equal:
+            case R.id.btn_equal: // case btn_equal is starter code from brightspace, needs to be coded properly.
                 String result = null;
                 try {
                     result = evaluate(text_display.getText().toString());
@@ -139,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text_display.setText("Error");
                 }
                 break;
+
             case R.id.btn_clear:
                 clear_display();
                 break;
@@ -147,16 +153,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //method evaluate() is starter code from brightspace, needs to be coded properly.
     private String evaluate(String expression) throws Exception {
         String result = evaluate(expression);
         BigDecimal decimal = new BigDecimal(result);
         return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
     }
 
+
+    //done
     private void addNumber(String number) {
         text_display.setText(text_display.getText() + number);
     }
 
+    //done
     private void clear_display() {
         text_display.setText("");
     }
