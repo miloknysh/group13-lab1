@@ -51,7 +51,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setClickListeners() {
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+        btn6.setOnClickListener(this);
+        btn7.setOnClickListener(this);
+        btn8.setOnClickListener(this);
+        btn9.setOnClickListener(this);
+        btn0.setOnClickListener(this);
+        btn_minus.setOnClickListener(this);
+        btn_mult.setOnClickListener(this);
+        btn_div.setOnClickListener(this);
         btn_plus.setOnClickListener(this);
+        btn_dot.setOnClickListener(this);
         btn_equal.setOnClickListener(this);
         btn_clear.setOnClickListener(this);
     }
@@ -65,6 +77,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn2:
                 addNumber("2");
                 break;
+
+            case R.id.btn3:
+                addNumber("3");
+                break;
+
+            case R.id.btn4:
+                addNumber("4");
+                break;
+
             case R.id.btn_plus:
                 addNumber("+");
                 break;
@@ -80,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_clear:
                 clear_display();
                 break;
+
+
         }
     }
 
